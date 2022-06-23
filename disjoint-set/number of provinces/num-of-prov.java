@@ -19,10 +19,10 @@ class Solution {
         int[] parent = new int[isConnected.length]; // construct parent matrix
         Arrays.fill(parent, -1); // fill(int[] a, int val)
         // traverse whole matrix
-        for (int i = 0; i < isConnected.length; i++) {
-            for (int j = 0; j < isConnected.length; j++) {
+        for (int i = 0; i < isConnected.length; i++) { // O(N)
+            for (int j = 0; j < isConnected.length; j++) { // O(N)
                 if (isConnected[i][j] == 1 && i != j) // connect then union
-                    union(parent, i, j);
+                    union(parent, i, j); //O(N)
             }
         }
         int count = 0;
@@ -32,3 +32,8 @@ class Solution {
         return count;
     }
 }
+
+/**
+ * this cost O(N^3) time complexity
+ * O(N) space, since we construct a parent array
+ */
